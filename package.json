@@ -1,0 +1,32 @@
+{
+  "name": "jsreport-jade",
+  "version": "1.0.0",
+  "description": "Use jade templating engine in jsreport",
+  "main": "jsreport.config.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "author": {
+    "name": "BJR Matos",
+    "email": "bjrmatos@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jsreport",
+    "jade"
+  ],
+  "homepage": "https://github.com/bjrmatos/jsreport-jade",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bjrmatos/jsreport-jade.git"
+  },
+  "dependencies": {
+    "toner-jade": "1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "1.7.1",
+    "eslint-config-airbnb": "0.1.0",
+    "mocha": "2.3.3",
+    "should": "7.1.0"
+  }
+}
