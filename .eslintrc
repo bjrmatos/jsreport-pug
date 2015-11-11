@@ -1,9 +1,6 @@
 {
   "extends": "eslint-config-airbnb/base", // https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb/.eslintrc
 
-  // Use default eslint parser
-  "parser": "espree",
-
   // Allow the following global variables
   "env": {
     "browser": true, // browser global variables
