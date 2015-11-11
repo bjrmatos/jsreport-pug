@@ -4,6 +4,7 @@
   "description": "Use jade templating engine in jsreport",
   "main": "jsreport.config.js",
   "scripts": {
+    "lint": "eslint src test",
     "test": "mocha test"
   },
   "author": {
