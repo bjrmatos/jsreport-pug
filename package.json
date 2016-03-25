@@ -1,6 +1,6 @@
 {
   "name": "jsreport-jade",
-  "version": "1.1.0",
+  "version": "1.2.0-rc1",
   "description": "Use jade templating engine in jsreport",
   "main": "index.js",
   "scripts": {
