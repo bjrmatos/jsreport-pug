@@ -2,5 +2,6 @@
 
 module.exports = {
   name: 'jade',
-  main: 'src/jade.js'
+  main: 'src/jade.js',
+  hasPublicPart: false
 };
