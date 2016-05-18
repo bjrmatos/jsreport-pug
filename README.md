@@ -7,3 +7,15 @@
 ```bash
 npm install jsreport-jade
 ```
+
+You can access the input data through jade locals and you can find helpers on `templateHelpers`
+```html
+doctype html
+html(lang="en")
+  head
+  body
+    p Hello from helper: #{templateHelpers.hello()}
+    p Hello from input data: #{hello}
+```
+
+**See the [playground example](https://playground.jsreport.net/studio/workspace/Vy9Y0fHz-/3)**
