@@ -22,7 +22,7 @@
     "url": "git@github.com:bjrmatos/jsreport-jade.git"
   },
   "dependencies": {
-    "object-assign": "4.0.1",
+    "object-assign": "4.1.0",
     "toner-jade": "1.0.0"
   },
   "devDependencies": {
