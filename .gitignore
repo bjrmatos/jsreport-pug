@@ -29,3 +29,8 @@ bower_components
 # Temp directory
 .tmp
 .sass-cache
+
+.idea
+
+studio/main.js
+studio/main.js.map
