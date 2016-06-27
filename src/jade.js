@@ -23,7 +23,7 @@ module.exports = function(reporter) {
 
   // we need to addFileExtensionResolver after the store provider extension is initialized, but before
   // every other extension like sample template is processed
-  reporter.initializeListener.insert(0, 'jade', function() {
+  reporter.initializeListeners.insert(0, 'jade', function() {
     reporter.documentStore.addFileExtensionResolver(function(doc, entitySetName, entityType, propertyType) {
       if (doc.engine === 'jade' && propertyType.document.engine) {
         return 'jade';

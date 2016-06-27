@@ -4,7 +4,9 @@
   "description": "Use jade templating engine in jsreport",
   "main": "index.js",
   "scripts": {
+    "build": "jsreport-studio-build",
     "lint": "eslint src test",
+    "prepublish": "in-publish && jsreport-studio-build || not-in-publish",
     "test": "mocha test"
   },
   "author": {
@@ -22,12 +24,15 @@
     "url": "git@github.com:bjrmatos/jsreport-jade.git"
   },
   "dependencies": {
+    "in-publish": "2.0.0",
     "object-assign": "4.0.1",
     "toner-jade": "1.0.0"
   },
   "devDependencies": {
+    "brace": "0.8.0",
     "eslint": "1.9.0",
     "eslint-config-airbnb": "1.0.0",
+    "jsreport-studio-dev": "0.3.1",
     "mocha": "2.3.3",
     "should": "7.1.1"
   }
