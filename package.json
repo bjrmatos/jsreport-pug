@@ -33,7 +33,7 @@
     "eslint-config-airbnb": "1.0.0",
     "in-publish": "2.0.0",
     "jsreport-studio-dev": "1.0.2",
-    "mocha": "2.3.3",
+    "mocha": "3.0.1",
     "should": "7.1.1"
   }
 }
