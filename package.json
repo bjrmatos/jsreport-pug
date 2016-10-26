@@ -28,7 +28,7 @@
     "toner-jade": "1.0.0"
   },
   "devDependencies": {
-    "brace": "0.8.0",
+    "brace": "0.9.0",
     "eslint": "1.9.0",
     "eslint-config-airbnb": "1.0.0",
     "in-publish": "2.0.0",
