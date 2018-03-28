@@ -1,7 +1,7 @@
 {
-  "name": "jsreport-jade",
+  "name": "jsreport-pug",
   "version": "2.0.1",
-  "description": "Use jade templating engine in jsreport",
+  "description": "Use pug templating engine in jsreport",
   "main": "index.js",
   "scripts": {
     "build": "jsreport-studio-build",
@@ -19,12 +19,12 @@
   },
   "keywords": [
     "jsreport",
-    "jade"
+    "pug"
   ],
-  "homepage": "https://github.com/bjrmatos/jsreport-jade",
+  "homepage": "https://github.com/bjrmatos/jsreport-pug",
   "repository": {
     "type": "git",
-    "url": "git@github.com:bjrmatos/jsreport-jade.git"
+    "url": "git@github.com:bjrmatos/jsreport-pug.git"
   },
   "dependencies": {
     "pug": "2.0.3"

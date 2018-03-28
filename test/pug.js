@@ -1,21 +1,21 @@
 'use strict';
 
 var should = require('should'),
-    jsreportJade = require('../'),
+    jsreportPug = require('../'),
     pug = require('../src/pugEngine');
 
 /* eslint padded-blocks: [0] */
-describe('jsreport-jade', function() {
+describe('jsreport-pug', function() {
   it('should export a jsreport configuration function', function() {
-    should(typeof jsreportJade === 'function').be.eql(true);
+    should(typeof jsreportPug === 'function').be.eql(true);
   });
 
   it('should create a configuration object from configuration function', function() {
-    should(jsreportJade()).have.properties(['name', 'main']);
+    should(jsreportPug()).have.properties(['name', 'main']);
   });
 });
 
-describe('jade engine', function() {
+describe('pug engine', function() {
   it('should render html', function() {
     var html = pug('h1', null, null);
     should(html).be.eql('<h1></h1>');

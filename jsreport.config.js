@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  name: 'jade',
-  main: 'src/jade.js',
+  name: 'pug',
+  main: 'src/pug.js',
   hasPublicPart: true
 };

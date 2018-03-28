@@ -1,6 +1,6 @@
 'use strict';
 
-var main = require('./src/jade.js'),
+var main = require('./src/pug.js'),
     config = require('./jsreport.config.js');
 
 module.exports = function(options) {
