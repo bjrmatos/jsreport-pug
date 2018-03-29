@@ -54,9 +54,11 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	// eslint-disable-next-line import/no-unresolved, import/extensions
 	_jsreportStudio2.default.templateEditorModeResolvers.push(function (template) {
-	  return template.engine === 'jade' ? 'jade' : null;
+	  return template.engine === 'pug' ? 'jade' : null;
 	});
+	// eslint-disable-next-line import/no-extraneous-dependencies
 
 /***/ },
 /* 1 */
