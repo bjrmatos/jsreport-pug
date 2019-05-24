@@ -1,50 +1,6 @@
 /******/ (function(modules) { // webpackBootstrap
-/******/ 	// install a JSONP callback for chunk loading
-/******/ 	function webpackJsonpCallback(data) {
-/******/ 		var chunkIds = data[0];
-/******/ 		var moreModules = data[1];
-/******/
-/******/
-/******/ 		// add "moreModules" to the modules object,
-/******/ 		// then flag all "chunkIds" as loaded and fire callback
-/******/ 		var moduleId, chunkId, i = 0, resolves = [];
-/******/ 		for(;i < chunkIds.length; i++) {
-/******/ 			chunkId = chunkIds[i];
-/******/ 			if(installedChunks[chunkId]) {
-/******/ 				resolves.push(installedChunks[chunkId][0]);
-/******/ 			}
-/******/ 			installedChunks[chunkId] = 0;
-/******/ 		}
-/******/ 		for(moduleId in moreModules) {
-/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
-/******/ 				modules[moduleId] = moreModules[moduleId];
-/******/ 			}
-/******/ 		}
-/******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
-/******/
-/******/ 		while(resolves.length) {
-/******/ 			resolves.shift()();
-/******/ 		}
-/******/
-/******/ 	};
-/******/
-/******/
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-/******/
-/******/ 	// object to store loaded and loading chunks
-/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 	// Promise = chunk loading, 0 = chunk loaded
-/******/ 	var installedChunks = {
-/******/ 		0: 0
-/******/ 	};
-/******/
-/******/
-/******/
-/******/ 	// script path function
-/******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + chunkId + ".main.js"
-/******/ 	}
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -70,66 +26,6 @@
 /******/ 		return module.exports;
 /******/ 	}
 /******/
-/******/ 	// This file contains only the entry chunk.
-/******/ 	// The chunk loading function for additional chunks
-/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
-/******/ 		var promises = [];
-/******/
-/******/
-/******/ 		// JSONP chunk loading for javascript
-/******/
-/******/ 		var installedChunkData = installedChunks[chunkId];
-/******/ 		if(installedChunkData !== 0) { // 0 means "already installed".
-/******/
-/******/ 			// a Promise means "currently loading".
-/******/ 			if(installedChunkData) {
-/******/ 				promises.push(installedChunkData[2]);
-/******/ 			} else {
-/******/ 				// setup Promise in chunk cache
-/******/ 				var promise = new Promise(function(resolve, reject) {
-/******/ 					installedChunkData = installedChunks[chunkId] = [resolve, reject];
-/******/ 				});
-/******/ 				promises.push(installedChunkData[2] = promise);
-/******/
-/******/ 				// start chunk loading
-/******/ 				var script = document.createElement('script');
-/******/ 				var onScriptComplete;
-/******/
-/******/ 				script.charset = 'utf-8';
-/******/ 				script.timeout = 120;
-/******/ 				if (__webpack_require__.nc) {
-/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
-/******/ 				}
-/******/ 				script.src = jsonpScriptSrc(chunkId);
-/******/
-/******/ 				// create error before stack unwound to get useful stacktrace later
-/******/ 				var error = new Error();
-/******/ 				onScriptComplete = function (event) {
-/******/ 					// avoid mem leaks in IE.
-/******/ 					script.onerror = script.onload = null;
-/******/ 					clearTimeout(timeout);
-/******/ 					var chunk = installedChunks[chunkId];
-/******/ 					if(chunk !== 0) {
-/******/ 						if(chunk) {
-/******/ 							var errorType = event && (event.type === 'load' ? 'missing' : event.type);
-/******/ 							var realSrc = event && event.target && event.target.src;
-/******/ 							error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
-/******/ 							error.type = errorType;
-/******/ 							error.request = realSrc;
-/******/ 							chunk[1](error);
-/******/ 						}
-/******/ 						installedChunks[chunkId] = undefined;
-/******/ 					}
-/******/ 				};
-/******/ 				var timeout = setTimeout(function(){
-/******/ 					onScriptComplete({ type: 'timeout', target: script });
-/******/ 				}, 120000);
-/******/ 				script.onerror = script.onload = onScriptComplete;
-/******/ 				document.head.appendChild(script);
-/******/ 			}
-/******/ 		}
-/******/ 		return Promise.all(promises);
-/******/ 	};
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
@@ -183,23 +79,250 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
-/******/ 	// on error function for async loading
-/******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
-/******/
-/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
-/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
-/******/ 	jsonpArray.push = webpackJsonpCallback;
-/******/ 	jsonpArray = jsonpArray.slice();
-/******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
-/******/ 	var parentJsonpFunction = oldJsonpFunction;
-/******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "conf", function() { return conf; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "language", function() { return language; });
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+var conf = {
+    comments: {
+        lineComment: '//'
+    },
+    brackets: [['{', '}'], ['[', ']'], ['(', ')']],
+    autoClosingPairs: [
+        { open: '"', close: '"', notIn: ['string', 'comment'] },
+        { open: '\'', close: '\'', notIn: ['string', 'comment'] },
+        { open: '{', close: '}', notIn: ['string', 'comment'] },
+        { open: '[', close: ']', notIn: ['string', 'comment'] },
+        { open: '(', close: ')', notIn: ['string', 'comment'] },
+    ],
+    folding: {
+        offSide: true
+    }
+};
+var language = {
+    defaultToken: '',
+    tokenPostfix: '.pug',
+    ignoreCase: true,
+    brackets: [
+        { token: 'delimiter.curly', open: '{', close: '}' },
+        { token: 'delimiter.array', open: '[', close: ']' },
+        { token: 'delimiter.parenthesis', open: '(', close: ')' }
+    ],
+    keywords: ['append', 'block', 'case', 'default', 'doctype', 'each', 'else', 'extends',
+        'for', 'if', 'in', 'include', 'mixin', 'typeof', 'unless', 'var', 'when'],
+    tags: [
+        'a', 'abbr', 'acronym', 'address', 'area', 'article', 'aside', 'audio',
+        'b', 'base', 'basefont', 'bdi', 'bdo', 'blockquote', 'body', 'br', 'button',
+        'canvas', 'caption', 'center', 'cite', 'code', 'col', 'colgroup', 'command',
+        'datalist', 'dd', 'del', 'details', 'dfn', 'div', 'dl', 'dt',
+        'em', 'embed',
+        'fieldset', 'figcaption', 'figure', 'font', 'footer', 'form', 'frame', 'frameset',
+        'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head', 'header', 'hgroup', 'hr', 'html',
+        'i', 'iframe', 'img', 'input', 'ins',
+        'keygen', 'kbd',
+        'label', 'li', 'link',
+        'map', 'mark', 'menu', 'meta', 'meter',
+        'nav', 'noframes', 'noscript',
+        'object', 'ol', 'optgroup', 'option', 'output',
+        'p', 'param', 'pre', 'progress',
+        'q',
+        'rp', 'rt', 'ruby',
+        's', 'samp', 'script', 'section', 'select', 'small', 'source', 'span', 'strike', 'strong', 'style', 'sub', 'summary', 'sup',
+        'table', 'tbody', 'td', 'textarea', 'tfoot', 'th', 'thead', 'time', 'title', 'tr', 'tracks', 'tt',
+        'u', 'ul',
+        'video',
+        'wbr'
+    ],
+    // we include these common regular expressions
+    symbols: /[\+\-\*\%\&\|\!\=\/\.\,\:]+/,
+    escapes: /\\(?:[abfnrtv\\"']|x[0-9A-Fa-f]{1,4}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})/,
+    tokenizer: {
+        root: [
+            // Tag or a keyword at start
+            [/^(\s*)([a-zA-Z_-][\w-]*)/,
+                {
+                    cases: {
+                        '$2@tags': {
+                            cases: {
+                                '@eos': ['', 'tag'],
+                                '@default': ['', { token: 'tag', next: '@tag.$1' },]
+                            }
+                        },
+                        '$2@keywords': ['', { token: 'keyword.$2' },],
+                        '@default': ['', '',]
+                    }
+                }
+            ],
+            // id
+            [/^(\s*)(#[a-zA-Z_-][\w-]*)/, {
+                    cases: {
+                        '@eos': ['', 'tag.id'],
+                        '@default': ['', { token: 'tag.id', next: '@tag.$1' }]
+                    }
+                }],
+            // class
+            [/^(\s*)(\.[a-zA-Z_-][\w-]*)/, {
+                    cases: {
+                        '@eos': ['', 'tag.class'],
+                        '@default': ['', { token: 'tag.class', next: '@tag.$1' }]
+                    }
+                }],
+            // plain text with pipe
+            [/^(\s*)(\|.*)$/, ''],
+            { include: '@whitespace' },
+            // keywords
+            [/[a-zA-Z_$][\w$]*/, {
+                    cases: {
+                        '@keywords': { token: 'keyword.$0' },
+                        '@default': ''
+                    }
+                }],
+            // delimiters and operators
+            [/[{}()\[\]]/, '@brackets'],
+            [/@symbols/, 'delimiter'],
+            // numbers
+            [/\d+\.\d+([eE][\-+]?\d+)?/, 'number.float'],
+            [/\d+/, 'number'],
+            // strings:
+            [/"/, 'string', '@string."'],
+            [/'/, 'string', '@string.\''],
+        ],
+        tag: [
+            [/(\.)(\s*$)/, [{ token: 'delimiter', next: '@blockText.$S2.' }, '']],
+            [/\s+/, { token: '', next: '@simpleText' }],
+            // id
+            [/#[a-zA-Z_-][\w-]*/, {
+                    cases: {
+                        '@eos': { token: 'tag.id', next: '@pop' },
+                        '@default': 'tag.id'
+                    }
+                }],
+            // class
+            [/\.[a-zA-Z_-][\w-]*/, {
+                    cases: {
+                        '@eos': { token: 'tag.class', next: '@pop' },
+                        '@default': 'tag.class'
+                    }
+                }],
+            // attributes
+            [/\(/, { token: 'delimiter.parenthesis', next: '@attributeList' }],
+        ],
+        simpleText: [
+            [/[^#]+$/, { token: '', next: '@popall' }],
+            [/[^#]+/, { token: '' }],
+            // interpolation
+            [/(#{)([^}]*)(})/, {
+                    cases: {
+                        '@eos': ['interpolation.delimiter', 'interpolation', { token: 'interpolation.delimiter', next: '@popall' }],
+                        '@default': ['interpolation.delimiter', 'interpolation', 'interpolation.delimiter']
+                    }
+                }],
+            [/#$/, { token: '', next: '@popall' }],
+            [/#/, '']
+        ],
+        attributeList: [
+            [/\s+/, ''],
+            [/(\w+)(\s*=\s*)("|')/, ['attribute.name', 'delimiter', { token: 'attribute.value', next: '@value.$3' }]],
+            [/\w+/, 'attribute.name'],
+            [/,/, {
+                    cases: {
+                        '@eos': { token: 'attribute.delimiter', next: '@popall' },
+                        '@default': 'attribute.delimiter'
+                    }
+                }],
+            [/\)$/, { token: 'delimiter.parenthesis', next: '@popall' }],
+            [/\)/, { token: 'delimiter.parenthesis', next: '@pop' }],
+        ],
+        whitespace: [
+            [/^(\s*)(\/\/.*)$/, { token: 'comment', next: '@blockText.$1.comment' }],
+            [/[ \t\r\n]+/, ''],
+            [/<!--/, { token: 'comment', next: '@comment' }],
+        ],
+        blockText: [
+            [/^\s+.*$/, {
+                    cases: {
+                        '($S2\\s+.*$)': { token: '$S3' },
+                        '@default': { token: '@rematch', next: '@popall' }
+                    }
+                }],
+            [/./, { token: '@rematch', next: '@popall' }]
+        ],
+        comment: [
+            [/[^<\-]+/, 'comment.content'],
+            [/-->/, { token: 'comment', next: '@pop' }],
+            [/<!--/, 'comment.content.invalid'],
+            [/[<\-]/, 'comment.content']
+        ],
+        string: [
+            [/[^\\"'#]+/, {
+                    cases: {
+                        '@eos': { token: 'string', next: '@popall' },
+                        '@default': 'string'
+                    }
+                }],
+            [/@escapes/, {
+                    cases: {
+                        '@eos': { token: 'string.escape', next: '@popall' },
+                        '@default': 'string.escape'
+                    }
+                }],
+            [/\\./, {
+                    cases: {
+                        '@eos': { token: 'string.escape.invalid', next: '@popall' },
+                        '@default': 'string.escape.invalid'
+                    }
+                }],
+            // interpolation
+            [/(#{)([^}]*)(})/, ['interpolation.delimiter', 'interpolation', 'interpolation.delimiter']],
+            [/#/, 'string'],
+            [/["']/, {
+                    cases: {
+                        '$#==$S2': { token: 'string', next: '@pop' },
+                        '@default': { token: 'string' }
+                    }
+                }],
+        ],
+        // Almost identical to above, except for escapes and the output token
+        value: [
+            [/[^\\"']+/, {
+                    cases: {
+                        '@eos': { token: 'attribute.value', next: '@popall' },
+                        '@default': 'attribute.value'
+                    }
+                }],
+            [/\\./, {
+                    cases: {
+                        '@eos': { token: 'attribute.value', next: '@popall' },
+                        '@default': 'attribute.value'
+                    }
+                }],
+            [/["']/, {
+                    cases: {
+                        '$#==$S2': { token: 'attribute.value', next: '@pop' },
+                        '@default': { token: 'attribute.value' }
+                    }
+                }],
+        ],
+    },
+};
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -239,39 +362,40 @@ function registerLanguage(def) {
 
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _jsreportStudio = __webpack_require__(2);
+var _jsreportStudio = __webpack_require__(3);
 
 var _jsreportStudio2 = _interopRequireDefault(_jsreportStudio);
 
-__webpack_require__(3);
+__webpack_require__(0);
+
+__webpack_require__(4);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// eslint-disable-next-line import/no-unresolved, import/extensions, import/no-extraneous-dependencies
+// eslint-disable-next-line import/no-extraneous-dependencies
 _jsreportStudio2.default.templateEditorModeResolvers.push(function (template) {
   return template.engine === 'pug' ? 'pug' : null;
-});
-// eslint-disable-next-line import/no-extraneous-dependencies
+}); // eslint-disable-next-line import/no-unresolved, import/extensions, import/no-extraneous-dependencies
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports) {
 
 module.exports = Studio;
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _contribution_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+/* harmony import */ var _contribution_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
@@ -282,7 +406,7 @@ Object(_contribution_js__WEBPACK_IMPORTED_MODULE_0__["registerLanguage"])({
     id: 'pug',
     extensions: ['.jade', '.pug'],
     aliases: ['Pug', 'Jade', 'jade'],
-    loader: function () { return __webpack_require__.e(/* import() */ 1).then(__webpack_require__.bind(null, 4)); }
+    loader: function () { return Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 0)); }
 });
 
 
