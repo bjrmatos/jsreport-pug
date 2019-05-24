@@ -31,12 +31,12 @@
     "pug": "2.0.3"
   },
   "devDependencies": {
-    "eslint": "4.19.1",
-    "eslint-config-airbnb": "16.1.0",
-    "eslint-plugin-import": "2.9.0",
+    "eslint": "5.16.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-plugin-import": "2.17.3",
     "in-publish": "2.0.0",
-    "jsreport-studio-dev": "1.3.2",
-    "mocha": "5.2.0",
+    "jsreport-studio-dev": "1.4.0",
+    "mocha": "6.1.4",
     "monaco-editor": "0.16.2",
     "should": "13.2.3"
   }
